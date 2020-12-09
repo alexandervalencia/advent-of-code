@@ -39,6 +39,6 @@ const contiguousNumbers = findContiguousNumbers(numbersUpToTarget);
 
 const sortedNumbers = [...contiguousNumbers].sort((a, b) => a - b);
 
-const answer = sortedNumbers[0] + sortedNumbers[sortedNumbers.length - 1];
+const final = sortedNumbers[0] + sortedNumbers[sortedNumbers.length - 1];
 
-console.log(answer); // 238243506
+console.log(final); // 238243506
