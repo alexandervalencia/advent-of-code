@@ -13,6 +13,7 @@ class CommunicationDevice
   end
 
   def start_of_message_position
+    find_unique_datastream_position(MESSAGE_CHUNK_SIZE)
   end
 
   private
