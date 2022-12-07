@@ -1,16 +1,16 @@
 require 'byebug'
 
 class CommunicationDevice
-  CHUNK_SIZE = 4
+  PACKET_CHUNK_SIZE = 4
 
   def initialize(input)
     @datastream = input
   end
 
   def start_of_packet_position
-    datastream.split("").each_cons(CHUNK_SIZE) do |chunk|
+    datastream.split("").each_cons(PACKET_CHUNK_SIZE) do |chunk|
       if (chunk == chunk.uniq)
-        return datastream.index(chunk.join) + CHUNK_SIZE
+        return datastream.index(chunk.join) + PACKET_CHUNK_SIZE
       end
     end
   end
