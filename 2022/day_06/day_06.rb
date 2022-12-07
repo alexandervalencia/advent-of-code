@@ -12,6 +12,9 @@ class CommunicationDevice
     find_unique_datastream_position(PACKET_CHUNK_SIZE)
   end
 
+  def start_of_message_position
+  end
+
   private
 
   attr_reader :datastream
