@@ -2,20 +2,25 @@ require 'byebug'
 
 class CommunicationDevice
   PACKET_CHUNK_SIZE = 4
+  MESSAGE_CHUNK_SIZE = 14
 
   def initialize(input)
     @datastream = input
   end
 
   def start_of_packet_position
-    datastream.split("").each_cons(PACKET_CHUNK_SIZE) do |chunk|
-      if (chunk == chunk.uniq)
-        return datastream.index(chunk.join) + PACKET_CHUNK_SIZE
-      end
-    end
+    find_unique_datastream_position(PACKET_CHUNK_SIZE)
   end
 
   private
 
   attr_reader :datastream
+
+  def find_unique_datastream_position(chunk_size)
+    datastream.split("").each_cons(chunk_size) do |chunk|
+      if (chunk == chunk.uniq)
+        return datastream.index(chunk.join) + chunk_size
+      end
+    end
+  end
 end
