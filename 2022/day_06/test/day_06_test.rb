@@ -32,9 +32,9 @@ class Day06Test < Minitest::Test
 
   # The start-of-message marker is a sequence of four characters with a non-repeating character
   test "it should return the value of characters needed to reach the message marker" do
-    examples.each do |e|
+    message_examples.each do |e|
       expected = e[:marker]
-      assert_equal expected, CommunicationDevice.new(e[:input]).start_of_packet_position
+      assert_equal expected, CommunicationDevice.new(e[:input]).start_of_message_position
     end
   end
 end
