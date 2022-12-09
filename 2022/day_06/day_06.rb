@@ -1,5 +1,3 @@
-require 'byebug'
-
 class CommunicationDevice
   PACKET_CHUNK_SIZE = 4
   MESSAGE_CHUNK_SIZE = 14
@@ -21,10 +19,12 @@ class CommunicationDevice
   attr_reader :datastream
 
   def find_unique_datastream_position(chunk_size)
-    datastream.split("").each_cons(chunk_size) do |chunk|
-      if (chunk == chunk.uniq)
-        return datastream.index(chunk.join) + chunk_size
+    datastream
+      .split("")
+      .each_cons(chunk_size) do |chunk|
+        if (chunk == chunk.uniq)
+          return datastream.index(chunk.join) + chunk_size
+        end
       end
-    end
   end
 end
