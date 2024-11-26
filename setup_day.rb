@@ -18,8 +18,9 @@ OptionParser
 
 day = ARGV[0].to_s.rjust(2, "0")
 year = Time.now.year
-path = File.join(FileUtils.pwd(), "#{year}", "day_#{day}")
-path.contains
+path = FileUtils.pwd
+path = File.join(path, "#{year}") if !path.match? year.to_s
+path = File.join(path, "day_#{day}")
 instructions_file = File.join(path, "instructions.md")
 input_file = File.join(path, "input.txt")
 main_file = File.join(path, "main.rb")
