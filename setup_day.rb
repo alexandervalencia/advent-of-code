@@ -18,8 +18,8 @@ OptionParser
 
 day = ARGV[0].to_s.rjust(2, "0")
 year = Time.now.year
-path =
-  File.join(ENV.fetch("HOME"), "Code", "alex", "advent-of-code", "#{year}", "day_#{day}")
+path = File.join(FileUtils.pwd(), "#{year}", "day_#{day}")
+path.contains
 instructions_file = File.join(path, "instructions.md")
 input_file = File.join(path, "input.txt")
 main_file = File.join(path, "main.rb")
