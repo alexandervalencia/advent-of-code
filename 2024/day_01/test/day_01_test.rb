@@ -11,10 +11,6 @@ class Day01Test < Minitest::Test
 3   3
   INPUT
 
-  EXAMPLE_INPUT_TWO = <<~INPUT
-fill me in
-  INPUT
-
   def test_example_total_distance
     assert_equal 11, Day01.new(EXAMPLE_INPUT).total_distance
   end
